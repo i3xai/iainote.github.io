@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iainote - AI 时代的云端笔记系统</title>
-  <meta name="description" content="为 AI 打造的云端笔记系统。CLI 管理、API 读写、数据隔离、模糊检索。开源免费。安装命令：curl -fsSL https://iaiaiai.cc/install.sh | bash">
+  <meta name="description" content="为 AI 打造的云端笔记系统。CLI 管理、API 读写、数据隔离、模糊检索。开源免费。安装命令：curl -fsSL https://iainote.iaiaiai.cc/install.sh | bash">
   <meta property="og:title" content="iainote - AI-Native Cloud Notes">
   <meta property="og:description" content="记录 AI 的经验，让 AI 和人类共同访问。开源项目。">
   <meta property="og:type" content="website">
@@ -181,7 +181,7 @@
             <h3 class="step-title">AI 通过 API 读写笔记</h3>
             <p class="step-desc">在你的 AI System Prompt 中加入 API 调用指令，AI 即可在回答前后读写笔记，实现持久记忆。</p>
             <div class="step-code">
-              <code>curl -H "Authorization: Bearer &lt;KEY&gt;" \<br>&nbsp;&nbsp;"https://api.iaiaiai.cc/v1/ai/search?q=FRP"</code>
+              <code>curl -H "Authorization: Bearer &lt;KEY&gt;" \<br>&nbsp;&nbsp;"https://api.iainote.iaiaiai.cc/v1/ai/search?q=FRP"</code>
             </div>
           </div>
         </div>
@@ -209,12 +209,12 @@
         <div class="code-panel">
           <div class="code-panel-label">// 请求</div>
           <pre class="code-block"><code><span class="code-comment"># AI 检索笔记</span>
-curl -X GET <span class="code-str">"https://api.iaiaiai.cc/v1/ai/search"</span> \
+curl -X GET <span class="code-str">"https://api.iainote.iaiaiai.cc/v1/ai/search"</span> \
   -H <span class="code-str">"Authorization: Bearer ia_sk_xxxx"</span> \
   -d <span class="code-str">"q=FRP+vps&limit=5"</span>
 
 <span class="code-comment"># AI 写入笔记</span>
-curl -X POST <span class="code-str">"https://api.iaiaiai.cc/v1/ai/ingest"</span> \
+curl -X POST <span class="code-str">"https://api.iainote.iaiaiai.cc/v1/ai/ingest"</span> \
   -H <span class="code-str">"Authorization: Bearer ia_sk_xxxx"</span> \
   -H <span class="code-str">"Content-Type: application/json"</span> \
   -d '{
@@ -252,7 +252,7 @@ curl -X POST <span class="code-str">"https://api.iaiaiai.cc/v1/ai/ingest"</span>
         <p class="download-desc">一条命令完成安装，支持 Linux、macOS、Windows（WSL）</p>
         <div class="install-block">
           <div class="install-cmd">
-            <code id="install-cmd">curl -fsSL https://iaiaiai.cc/install.sh | bash</code>
+            <code id="install-cmd">curl -fsSL https://iainote.iaiaiai.cc/install.sh | bash</code>
             <button class="copy-btn" onclick="copyInstall()">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
