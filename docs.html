@@ -70,6 +70,7 @@
       <a href="#tags" class="sidebar-link">标签</a>
       <a href="#ai" class="sidebar-link">AI 接口</a>
       <a href="#keys" class="sidebar-link">Key 管理</a>
+      <a href="#skill" class="sidebar-link">Hermes Skill</a>
 
       <div class="sidebar-title" style="margin-top:24px;">基础 URL</div>
       <code style="font-size:11px;color:var(--green);font-family:var(--font-mono);">https://api.iainote.iaiaiai.cc/v1</code>
@@ -201,6 +202,39 @@
   <span class="code-key">"tags"</span>: [<span class="code-num">"frp"</span>, <span class="code-num">"阿里云"</span>],
   <span class="code-key">"auto_tag"</span>: <span class="code-num">true</span>
 }</code></pre>
+        </div>
+      </section>
+
+      <!-- Hermes Skill -->
+      <section id="skill" style="margin-top:64px;">
+        <h2 style="font-family:var(--font-mono);font-size:28px;margin-bottom:8px;">Hermes Skill</h2>
+        <p style="color:var(--text-dim);font-size:14px;margin-bottom:32px;">为 AI 助手（Hermes/Claude Code）准备的 skill，直接加载即可调用 iainote 所有接口。支持笔记读写、标签管理、AI检索。</p>
+
+        <div class="api-block">
+          <h3>安装方法</h3>
+          <p class="desc">在支持 Hermes Skill 的 AI 助手中，输入以下命令安装：</p>
+          <pre><code>/skills install iainote</code></pre>
+          <p class="desc" style="margin-top:16px;">或手动克隆到本地：</p>
+          <pre><code>git clone https://github.com/i3xai/iainote-skills.git ~/.hermes/skills/iainote</code></pre>
+          <p class="desc" style="margin-top:16px;">安装后告诉 AI 助手你的 API Key（注册后从 /auth/keys 获取），AI 会自动使用 Bearer Token 鉴权。</p>
+        </div>
+
+        <div class="api-block">
+          <h3>在 System Prompt 中使用</h3>
+          <p class="desc">将以下内容加入 AI 的 System Prompt，实现对话中的持久记忆：</p>
+          <pre><code>你有一个云端笔记系统（iainote）。
+
+写入笔记（当用户提供重要信息时）：
+curl -X POST "https://api.iainote.iaiaiai.cc/v1/ai/ingest" \
+  -H "Authorization: Bearer &lt;YOUR_TOKEN&gt;" \
+  -H "Content-Type: application/json" \
+  -d '{"title":"&lt;标题>","content":"&lt;内容>","tags":["tag1"]}'
+
+检索笔记（当需要回忆之前的信息时）：
+curl -X GET "https://api.iainote.iaiaiai.cc/v1/ai/search?q=&lt;关键词>" \
+  -H "Authorization: Bearer &lt;YOUR_TOKEN&gt;"
+
+注意：仅在用户明确表示要记忆、或需要引用之前讨论内容时才调用。</code></pre>
         </div>
       </section>
 
